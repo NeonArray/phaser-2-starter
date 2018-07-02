@@ -1,0 +1,27 @@
+{
+    "name": "phaser-2-starter",
+    "version": "1.0.0",
+    "description": "A Phaser 2 starter project that includes babel transpilation and webpack",
+    "main": "src/index.js",
+    "author": {
+        "name": "Aaron Arney",
+        "url": "https://ocular-rhythm.com"
+    },
+    "scripts": {
+        "develop": "NODE_ENV=development webpack-dev-server --hot --inline --port=8000",
+        "build": "NODE_ENV=production webpack"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "babel-core": "^6.26.3",
+        "babel-loader": "^7.1.4",
+        "babel-preset-env": "^1.7.0",
+        "expose-loader": "^0.7.5",
+        "webpack": "^4.14.0",
+        "webpack-cli": "^3.0.8",
+        "webpack-dev-server": "^3.1.4"
+    },
+    "dependencies": {
+        "phaser": "^2.6.2"
+    }
+}
