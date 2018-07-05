@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const BrowerSyncPlugin = require('browser-sync-webpack-plugin');
 
 const APP_DIR = path.resolve(__dirname, 'src');
 const BUILD_DIR = path.resolve(__dirname, 'public');
@@ -55,14 +56,16 @@ const config = {
             },
         ],
     },
-    plugins: NODE_ENV === 'production' ? [ new webpack.optimize.UglifyJsPlugin() ] : [],
-    devServer: {
-        contentBase: BUILD_DIR,
-        port: 8080,
-        stats: 'minimal',
-    },
+    plugins: NODE_ENV === 'production' ? [ new webpack.optimize.UglifyJsPlugin() ] : [
+        new BrowerSyncPlugin({
+            host: 'localhost',
+            port: 8000,
+            server: {
+                baseDir: [BUILD_DIR],
+            },
+        }),
+    ],
 };
 
 module.exports = config;
-
 
